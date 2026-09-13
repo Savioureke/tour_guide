@@ -1,6 +1,6 @@
 {
-  "buildCommand": "cd react && npm install && npm run build",
-  "outputDirectory": "react/dist",
+  "buildCommand": "sh -c 'if [ -d \"react\" ]; then cd react && npm install && npm run build && cd .. && cp -r react/dist dist; else npm run build; fi'",
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
