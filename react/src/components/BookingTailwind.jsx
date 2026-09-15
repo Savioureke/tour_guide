@@ -550,8 +550,8 @@ export default function BookingTailwind() {
             <div className="aspect-video w-full bg-black">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                title="Tour Guide Training Intro"
+                src="https://www.youtube-nocookie.com/embed/AUM-upgCd10?autoplay=1"
+                title="Tour Guide Training Tutorial: Professional Tour Leadership & Body Language"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />

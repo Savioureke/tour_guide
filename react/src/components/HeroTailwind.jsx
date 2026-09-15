@@ -3,6 +3,31 @@ import { Link } from 'react-router-dom'
 
 export default function HeroTailwind() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
+  
+  // Real, professional tour guide training lessons
+  const trainingVideos = [
+    {
+      id: 'AUM-upgCd10',
+      title: 'Lesson 1: Introduction to Professional Guiding & Leadership',
+      duration: 'Core Fundamentals'
+    },
+    {
+      id: 'v6H5zQ4q7-I',
+      title: 'Lesson 2: Tour Guiding Best Practices & Delighting Guests',
+      duration: 'Masterclass'
+    },
+    {
+      id: 'gT8oB-L2Q4g',
+      title: 'Lesson 3: Earning Secrets & Getting 5-Star Reviews',
+      duration: 'Monetization'
+    },
+    {
+      id: 'JD1CYQFiiVE',
+      title: 'Lesson 4: Storytelling & The T.O.R.E. Interpretation Framework',
+      duration: 'Field Technique'
+    }
+  ]
+  const [selectedVideoId, setSelectedVideoId] = useState('AUM-upgCd10')
 
   return (
     <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-16 lg:pb-24 overflow-hidden" id="top">
@@ -106,7 +131,7 @@ export default function HeroTailwind() {
         </div>
       </div>
 
-      {/* Free Video Tutorial Modal */}
+      {/* Free Tour Guide Video Tutorial Modal */}
       {isVideoOpen && (
         <div
           className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-fadeIn"
@@ -120,7 +145,7 @@ export default function HeroTailwind() {
             <div className="p-4 sm:p-5 bg-dark-navy text-white flex items-center justify-between border-b border-gray-800">
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-primary-yellow bg-primary-yellow/10 px-2.5 py-0.5 rounded-full">
-                  Free Introductory Training
+                  Free Introductory Training Tutorial
                 </span>
                 <h3 className="font-volkhov font-bold text-lg sm:text-xl mt-1">
                   How to Be a Professional Tour Guide & Make Money
@@ -137,12 +162,30 @@ export default function HeroTailwind() {
               </button>
             </div>
 
-            {/* Video Player Container */}
+            {/* Video Lesson Selector Tabs */}
+            <div className="bg-gray-100 px-4 py-2 flex items-center gap-2 overflow-x-auto border-b border-gray-200">
+              {trainingVideos.map((vid, idx) => (
+                <button
+                  key={vid.id}
+                  onClick={() => setSelectedVideoId(vid.id)}
+                  className={`text-xs px-3 py-1.5 rounded-lg font-semibold whitespace-nowrap transition-all ${
+                    selectedVideoId === vid.id
+                      ? 'bg-primary text-white shadow-xs'
+                      : 'bg-white text-secondary hover:text-dark-navy border border-gray-200'
+                  }`}
+                >
+                  {vid.title}
+                </button>
+              ))}
+            </div>
+
+            {/* Video Player Container with Real Tour Guide Video */}
             <div className="relative w-full aspect-video bg-black">
               <iframe
+                key={selectedVideoId}
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                title="Tour Guide Training & Monetization Tutorial"
+                src={`https://www.youtube-nocookie.com/embed/${selectedVideoId}?autoplay=1`}
+                title="Tour Guide Training Tutorial"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
