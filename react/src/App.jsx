@@ -16,6 +16,8 @@ import BookingPage from './pages/BookingPage'
 import TestimonialPage from './pages/TestimonialPage'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
+import GuideDashboard from './pages/GuideDashboard'
+import AdminPage from './pages/AdminPage'
 
 // Automatically scroll to top on route navigation
 function ScrollToTop() {
@@ -57,6 +59,8 @@ export default function App() {
             <Route path="/testimonial" element={<TestimonialPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
+            <Route path="/dashboard" element={<GuideDashboard />} />
+            <Route path="/admin" element={<AdminPage />} />
 
             {/* Fallback Route */}
             <Route path="*" element={<HeroTailwind />} />

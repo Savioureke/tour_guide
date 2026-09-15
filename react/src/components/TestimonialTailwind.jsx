@@ -5,33 +5,33 @@ export default function TestimonialTailwind() {
 
   const testimonials = [
     {
+      avatar: 'assets/img/dest/dest1.jpg',
+      quote:
+        '“I loved sharing the history of Rome, but had no idea how to attract international travelers or corporate clients. This program taught me storytelling structures and group logistics. Within two weeks of funding my account ($10 min) and going live, I booked 14 private walking tours and made $3,800.”',
+      name: 'Mateo Rossi',
+      role: 'Rome & Florence Cultural Guide · $45/hr'
+    },
+    {
+      avatar: 'assets/img/dest/dest2.jpg',
+      quote:
+        '“The introductory video gave me total clarity on what luxury travelers expect. Once I completed the training and funded my account, my profile was featured globally. I now partner regularly with European travel agencies and corporate groups.”',
+      name: 'Sophia Laurent',
+      role: 'Paris & Louvre Art Specialist · $55/hr'
+    },
+    {
       avatar: 'assets/img/testimonial/author.png',
       quote:
-        '“Booking through Tour Guide was an incredible experience. From the curated itineraries to the seamless hotel bookings, every moment of our trip felt effortless and unforgettable.”',
-      name: 'Mike Taylor',
-      role: 'Lahore, Pakistan'
-    },
-    {
-      avatar: 'assets/img/testimonial/author2.png',
-      quote:
-        '“Tour Guide is recognized as one of the finest travel agencies in the world. When it came to planning a trip, I found them to be dependable and exceptional.”',
-      name: 'Thomas Wagon',
-      role: 'CEO of Red Button'
-    },
-    {
-      avatar: 'assets/img/testimonial/author3.png',
-      quote:
-        '“Our family vacation exceeded all expectations thanks to Tour Guide. Their 24/7 customer support and personalized local recommendations made our journey truly memorable.”',
-      name: 'Kelly William',
-      role: 'Khulna, Bangladesh'
+        '“Knowing your local area and knowing how to guide professionally are two completely different things. The emergency protocols and VIP hospitality modules gave me the confidence to charge premium rates from day one.”',
+      name: 'Amara Okafor',
+      role: 'Cape Town & Safari Expedition Guide · $48/hr'
     }
   ]
 
-  // Auto switch testimonial every 2 seconds
+  // Auto switch testimonial every 3 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length)
-    }, 2000)
+    }, 3000)
     return () => clearInterval(timer)
   }, [testimonials.length])
 
@@ -54,10 +54,10 @@ export default function TestimonialTailwind() {
           {/* Left Column: Heading & Dots */}
           <div className="w-full lg:w-5/12 text-center lg:text-left">
             <h5 className="text-secondary font-semibold text-sm sm:text-base uppercase tracking-widest mb-3">
-              Testimonials
+              GLOBAL SUCCESS STORIES
             </h5>
             <h3 className="font-volkhov font-bold text-dark-navy text-3xl sm:text-4xl md:text-5xl capitalize leading-tight mb-8">
-              What people say about Us.
+              What Certified Tour Guides Say About Us
             </h3>
 
             {/* Carousel Dot Indicators */}

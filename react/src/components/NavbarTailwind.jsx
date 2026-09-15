@@ -6,6 +6,7 @@ export default function NavbarTailwind() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
   const [currentLang, setCurrentLang] = useState('EN')
+  const [loggedInUser, setLoggedInUser] = useState(null)
   const location = useLocation()
 
   useEffect(() => {
@@ -20,6 +21,23 @@ export default function NavbarTailwind() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Check login state from localStorage
+  useEffect(() => {
+    const checkUser = () => {
+      try {
+        const u = localStorage.getItem('tour_guide_user')
+        if (u) {
+          setLoggedInUser(JSON.parse(u))
+        } else {
+          setLoggedInUser(null)
+        }
+      } catch (e) {
+        setLoggedInUser(null)
+      }
+    }
+    checkUser()
+  }, [location.pathname])
+
   // Close mobile menu on route change
   useEffect(() => {
     setIsMenuOpen(false)
@@ -28,15 +46,20 @@ export default function NavbarTailwind() {
 
   const navLinks = [
     { label: 'Home', path: '/' },
-    { label: 'Service', path: '/service' },
-    { label: 'Destination', path: '/destination' },
-    { label: 'Booking', path: '/booking' },
-    { label: 'Testimonial', path: '/testimonial' },
+    { label: 'Guide Skills', path: '/service' },
+    { label: 'Global Guides', path: '/destination' },
+    { label: 'Earn & Monetize', path: '/booking' },
+    { label: 'Success Stories', path: '/testimonial' },
   ]
 
   const isCurrentPage = (path) => {
     if (path === '/') return location.pathname === '/'
     return location.pathname.startsWith(path)
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem('tour_guide_user')
+    setLoggedInUser(null)
   }
 
   return (
@@ -58,14 +81,14 @@ export default function NavbarTailwind() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex items-center space-x-7 xl:space-x-10">
+        <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {navLinks.map((link) => {
             const active = isCurrentPage(link.path)
             return (
               <Link
                 key={link.label}
                 to={link.path}
-                className={`text-base font-medium transition-colors py-1 relative ${
+                className={`text-sm xl:text-base font-medium transition-colors py-1 relative ${
                   active
                     ? 'text-primary font-semibold'
                     : 'text-dark-text hover:text-primary'
@@ -79,35 +102,70 @@ export default function NavbarTailwind() {
             )
           })}
 
-          {/* Login Link */}
+          {/* Admin Link */}
           <Link
-            to="/login"
-            className={`text-base font-medium transition-colors ${
-              location.pathname === '/login'
-                ? 'text-primary font-semibold'
-                : 'text-dark-text hover:text-primary'
+            to="/admin"
+            className={`text-xs uppercase font-bold tracking-wider px-2.5 py-1 rounded-md transition-colors ${
+              location.pathname === '/admin'
+                ? 'bg-dark-navy text-white'
+                : 'text-secondary bg-gray-100 hover:text-dark-navy hover:bg-gray-200'
             }`}
           >
-            Login
+            Admin
           </Link>
 
-          {/* Sign Up Button */}
-          <Link
-            to="/signup"
-            className={`border px-5 py-2 rounded-md text-base font-medium transition-all ${
-              location.pathname === '/signup'
-                ? 'bg-primary border-primary text-white shadow-sm'
-                : 'border-dark-text text-dark-text hover:bg-dark-text hover:text-white'
-            }`}
-          >
-            Sign Up
-          </Link>
+          {/* Conditional Auth State */}
+          {loggedInUser ? (
+            <div className="flex items-center space-x-3">
+              <Link
+                to="/dashboard"
+                className={`text-sm font-bold flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition-all ${
+                  location.pathname === '/dashboard'
+                    ? 'bg-primary text-white border-primary shadow-xs'
+                    : 'border-primary/30 text-primary hover:bg-primary/5'
+                }`}
+              >
+                <span>👤</span>
+                <span>{loggedInUser.name ? loggedInUser.name.split(' ')[0] : 'Dashboard'}</span>
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="text-xs text-secondary hover:text-red-500 font-medium transition-colors"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center space-x-4">
+              <Link
+                to="/login"
+                className={`text-sm xl:text-base font-medium transition-colors ${
+                  location.pathname === '/login'
+                    ? 'text-primary font-semibold'
+                    : 'text-dark-text hover:text-primary'
+                }`}
+              >
+                Login
+              </Link>
+
+              <Link
+                to="/signup"
+                className={`border px-4 py-2 rounded-md text-sm xl:text-base font-medium transition-all ${
+                  location.pathname === '/signup'
+                    ? 'bg-primary border-primary text-white shadow-sm'
+                    : 'border-dark-text text-dark-text hover:bg-dark-text hover:text-white'
+                }`}
+              >
+                Sign Up
+              </Link>
+            </div>
+          )}
 
           {/* Language Selector */}
           <div className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="text-base font-medium text-dark-text hover:text-primary flex items-center space-x-1 focus:outline-none"
+              className="text-sm font-medium text-dark-text hover:text-primary flex items-center space-x-1 focus:outline-none"
             >
               <span>{currentLang}</span>
               <svg
@@ -134,14 +192,14 @@ export default function NavbarTailwind() {
                 </button>
                 <button
                   onClick={() => {
-                    setCurrentLang('BN')
+                    setCurrentLang('FR')
                     setLangOpen(false)
                   }}
                   className={`w-full text-left px-4 py-1.5 text-sm transition-colors ${
-                    currentLang === 'BN' ? 'font-semibold text-primary bg-orange-50' : 'text-gray-700 hover:bg-gray-50'
+                    currentLang === 'FR' ? 'font-semibold text-primary bg-orange-50' : 'text-gray-700 hover:bg-gray-50'
                   }`}
                 >
-                  BN
+                  FR
                 </button>
               </div>
             )}
@@ -167,7 +225,7 @@ export default function NavbarTailwind() {
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
         <div className="lg:hidden px-4 pt-3 pb-6 bg-white/98 backdrop-blur-lg border-b border-gray-100 shadow-xl transition-all">
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-3">
             {navLinks.map((link) => {
               const active = isCurrentPage(link.path)
               return (
@@ -175,7 +233,7 @@ export default function NavbarTailwind() {
                   key={link.label}
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-lg font-medium py-1 border-b border-gray-50 flex items-center justify-between ${
+                  className={`text-base font-medium py-1 border-b border-gray-50 flex items-center justify-between ${
                     active ? 'text-primary font-semibold' : 'text-dark-text hover:text-primary'
                   }`}
                 >
@@ -184,46 +242,53 @@ export default function NavbarTailwind() {
                 </Link>
               )
             })}
+
             <Link
-              to="/login"
+              to="/admin"
               onClick={() => setIsMenuOpen(false)}
-              className={`text-lg font-medium py-1 border-b border-gray-50 ${
-                location.pathname === '/login' ? 'text-primary font-semibold' : 'text-dark-text hover:text-primary'
-              }`}
+              className="text-base font-semibold text-primary-yellow py-1 border-b border-gray-50 flex items-center justify-between"
             >
-              Login
+              <span>Admin Portal</span>
+              <span>⚙️</span>
             </Link>
-            <div className="pt-2 flex items-center justify-between">
-              <Link
-                to="/signup"
-                onClick={() => setIsMenuOpen(false)}
-                className={`inline-block border px-6 py-2.5 rounded-lg text-center font-medium text-base transition-all ${
-                  location.pathname === '/signup'
-                    ? 'bg-primary border-primary text-white shadow-sm'
-                    : 'border-dark-text text-dark-text hover:bg-dark-text hover:text-white'
-                }`}
-              >
-                Sign Up
-              </Link>
-              <div className="flex items-center space-x-2 bg-gray-100 px-3 py-1.5 rounded-lg">
-                <button
-                  onClick={() => setCurrentLang('EN')}
-                  className={`text-sm px-2 py-0.5 rounded font-medium ${
-                    currentLang === 'EN' ? 'bg-white text-primary shadow-xs' : 'text-gray-600'
-                  }`}
+
+            {loggedInUser ? (
+              <div className="pt-2 flex items-center justify-between">
+                <Link
+                  to="/dashboard"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="px-4 py-2 bg-primary text-white text-sm font-bold rounded-lg shadow-sm"
                 >
-                  EN
-                </button>
+                  Guide Dashboard ({loggedInUser.name?.split(' ')[0]})
+                </Link>
                 <button
-                  onClick={() => setCurrentLang('BN')}
-                  className={`text-sm px-2 py-0.5 rounded font-medium ${
-                    currentLang === 'BN' ? 'bg-white text-primary shadow-xs' : 'text-gray-600'
-                  }`}
+                  onClick={() => {
+                    handleLogout()
+                    setIsMenuOpen(false)
+                  }}
+                  className="text-xs text-red-500 font-bold"
                 >
-                  BN
+                  Logout
                 </button>
               </div>
-            </div>
+            ) : (
+              <div className="pt-2 flex items-center justify-between">
+                <Link
+                  to="/login"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-base font-medium text-dark-text hover:text-primary"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="border border-dark-text px-5 py-2 rounded-lg text-center font-medium text-sm text-dark-text hover:bg-dark-text hover:text-white"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       )}

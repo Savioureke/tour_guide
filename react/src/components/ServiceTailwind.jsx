@@ -4,26 +4,26 @@ export default function ServiceTailwind() {
   const services = [
     {
       icon: 'assets/img/category/icon1.png',
-      title: 'Calculated Weather',
-      desc: 'Built Wicket longer admire do barton vanity itself do in it.',
+      title: 'Heritage Storytelling',
+      desc: 'Transform raw historical dates and monuments into captivating, memorable stories that keep travelers engaged.',
       active: false
     },
     {
       icon: 'assets/img/category/icon2.png',
-      title: 'Best Flights',
-      desc: 'Engrossed listening. Park gate sell they west hard for the.',
+      title: 'Route Logistics & Timing',
+      desc: 'Master crowd navigation, landmarks pacing, and seamless time management for flawless itinerary execution.',
       active: true // Featured in original template
     },
     {
       icon: 'assets/img/category/icon3.png',
-      title: 'Local Events',
-      desc: 'Barton vanity itself do in it. Preferd to men it engrossed listening.',
+      title: 'Safety & Field Protocols',
+      desc: 'Essential first-response awareness, emergency guest communication, and responsible field management.',
       active: false
     },
     {
       icon: 'assets/img/category/icon4.png',
-      title: 'Customization',
-      desc: 'We deliver outsourced aviation services for military customers',
+      title: 'VIP Hospitality & Earning',
+      desc: 'Deliver bespoke private walking experiences, corporate delegation guiding, and command premium $40–$75/hr rates.',
       active: false
     }
   ]
@@ -43,11 +43,14 @@ export default function ServiceTailwind() {
         {/* Section Heading */}
         <div className="text-center mb-12 md:mb-20">
           <h5 className="text-secondary font-semibold text-sm sm:text-base uppercase tracking-widest mb-3">
-            CATEGORY
+            GUIDING METHODOLOGY & SKILLS
           </h5>
           <h3 className="font-volkhov font-bold text-dark-navy text-3xl sm:text-4xl md:text-5xl capitalize">
-            We Offer Best Services
+            Core Skills of a Professional Tour Guide
           </h3>
+          <p className="text-secondary text-sm sm:text-base max-w-2xl mx-auto mt-3">
+            We teach you how to turn local culture into an unforgettable experience. Learn professional guide procedures while earning from real client bookings.
+          </p>
         </div>
 
         {/* Services Responsive Grid */}

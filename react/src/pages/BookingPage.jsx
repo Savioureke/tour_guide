@@ -6,101 +6,105 @@ import CtaTailwind from '../components/CtaTailwind'
 export default function BookingPage() {
   const [activeFaq, setActiveFaq] = useState(null)
 
-  // 4 Main Tour Packages with Distinct Booking Amounts
+  // 4 Main Tour Guide Training Tracks
   const tourTiers = [
     {
       id: 'budget',
-      name: 'Budget Backpacker',
+      name: 'Independent Starter Guide',
       amount: 299,
-      period: '3 Days / 2 Nights',
+      period: '3-Week Blueprint',
       badge: 'Best Value',
       badgeColor: 'bg-blue-100 text-blue-700',
-      description: 'Ideal for independent adventurers seeking essentials & freedom.',
+      description: 'Ideal for local residents wanting foundational procedures, monument narration frameworks, and walking route planning.',
       features: [
-        'Boutique Hostel or 3-Star Stay',
-        'Self-Guided Map & Audio App',
-        'Public Transit & Ferry Passes',
-        'Daily Continental Breakfast',
-        'Standard 24/7 Online Support'
+        'Complete Heritage Storytelling Frameworks',
+        '2-to-3 Hour Walking Tour Route Blueprint',
+        'Group Dynamics & Landmark Pacing System',
+        'Standard Safety & Field Incident Checklist',
+        '24/7 Global Guide Community Forum'
       ],
-      ctaText: 'Select Budget Tour',
+      ctaText: 'Select Starter Track',
       highlighted: false
     },
     {
       id: 'classic',
-      name: 'Classic Explorer',
+      name: 'Certified Professional Guide',
       amount: 680,
-      period: '7 Days / 6 Nights',
+      period: '6-Week Masterclass',
       badge: 'Most Popular',
       badgeColor: 'bg-primary text-white',
-      description: 'The definitive guided journey with top-rated hotels & local masters.',
+      description: 'The complete professional standard with live route audits, direct client acquisition methods, and verified directory spotlight.',
       features: [
-        '4-Star Handpicked Hotels',
-        'Certified Local English Guide',
-        'Skip-the-Line Museum Tickets',
-        'Daily Breakfast & 3 Group Dinners',
-        'Air-Conditioned Coach Travel',
-        'Airport Meet & Greet Transfer'
+        'Full Landmark & Cultural Narrative Decks',
+        'Client Acquisition & Rate Setting ($35-$55/hr)',
+        'Live Field Practice & Master Assessment',
+        'Payout Channel Setup & Multi-Currency Suite',
+        'Priority Listing on Global Guide Showcase',
+        'Dedicated Guide Success Concierge'
       ],
-      ctaText: 'Book Classic Tour',
+      ctaText: 'Start Professional Training',
       highlighted: true
     },
     {
       id: 'adventure',
-      name: 'Family & Safari Expedition',
+      name: 'Safari & Eco-Adventure Specialist',
       amount: 1190,
-      period: '10 Days / 9 Nights',
-      badge: 'Adventure Special',
+      period: '8-Week Accelerator',
+      badge: 'High-Ticket Niche',
       badgeColor: 'bg-emerald-100 text-emerald-800',
-      description: 'Action-packed nature, wildlife, and group activities for all ages.',
+      description: 'Specialized training for national parks, wilderness expeditions, eco-tourism, and multi-day adventure trekking.',
       features: [
-        '4-Star Family Resort & Lodges',
-        'Private 4x4 Safari Excursions',
-        'All Meals Included Daily',
-        'Exclusive Wildlife Ranger Guide',
-        'National Park Entry Permits Included',
-        'Luggage & Porter Service'
+        'Wilderness Navigation & Terrain Safety',
+        'Wildlife Spotting Protocols & Storytelling',
+        'High-Ticket Expedition Group Pitching',
+        'Operator Contract & Insurance Templates',
+        'Priority Distribution to Safari Travel Agencies',
+        '1-on-1 Mentor Strategy Sessions'
       ],
-      ctaText: 'Book Family Safari',
+      ctaText: 'Enroll Expedition Track',
       highlighted: false
     },
     {
       id: 'luxury',
-      name: 'VIP Luxury Grand Tour',
+      name: 'VIP Private Tour Agency Mastermind',
       amount: 2450,
-      period: '14 Days / 13 Nights',
-      badge: 'Ultimate Luxury',
+      period: '12-Week Done-With-You',
+      badge: 'Agency & Scale',
       badgeColor: 'bg-amber-100 text-amber-800',
-      description: 'Uncompromising 5-star indulgence with private helicopters & villas.',
+      description: 'Scale from solo guide to launching a high-earning boutique travel agency or private VIP guide network.',
       features: [
-        '5-Star Luxury Suites & Ocean Villas',
-        'Private Chauffeur & Limousine',
-        'Helicopter Scenic Flight Included',
-        'Michelin-Star Tasting Dinners',
-        'Personal 24/7 Dedicated Concierge',
-        'Custom Private Itinerary'
+        'Complete Done-With-You Business Setup',
+        'Multi-Guide Roster & Fleet Coordination',
+        'Automated Luxury Inbound Client Funnels',
+        'Private Weekly 1-on-1 Business Coaching',
+        'Featured Top-Banner Spotlight for 1 Year',
+        'Lifetime Mastermind Access & Legal Contracts'
       ],
-      ctaText: 'Reserve VIP Tour',
+      ctaText: 'Apply for VIP Mastermind',
       highlighted: false
     }
   ]
 
   const faqs = [
     {
-      q: 'What is included in the tour booking amount?',
-      a: 'Each tour package clearly outlines its accommodations, licensed guides, entrance tickets, and meals. There are zero hidden booking fees or card processing surcharges.'
+      q: 'Do I need prior experience or a tourism degree to start?',
+      a: 'No. The program is built for anyone with a passion for their city and local culture. We provide comprehensive storytelling procedures, route planning scripts, and client handling standards from scratch.'
     },
     {
-      q: 'Can I change my tour date after booking?',
-      a: 'Yes! We offer flexible date rescheduling up to 7 days before your departure date at no extra penalty.'
+      q: 'How does the free video and the $10 funding work?',
+      a: 'The first introductory video tutorial is 100% free, walking you through basic guide procedures and how to make money. To continue advanced training and activate your profile on our global directory, you deposit a minimum of $10 into your guide wallet. This advertises you to travel companies, agencies, and international tourists.'
     },
     {
-      q: 'Do you offer group booking discounts for larger parties?',
-      a: 'Absolutely. Parties of 3 or more automatically receive an 8% discount, while groups of 8+ can request tailored corporate or family discount rates.'
+      q: 'Can I earn money while still in training?',
+      a: 'Yes! Once you fund your account with a minimum of $10, your verified profile goes live on the global directory immediately. You can start receiving tour inquiries and private client bookings while completing your modules.'
     },
     {
-      q: 'How does the payment and confirmation work?',
-      a: 'You can reserve instantly using Credit/Debit card, PayPal, or Apple Pay. You will immediately receive a digital booking pass, invoice, and day-by-day itinerary.'
+      q: 'How do I receive payments from clients and travel companies?',
+      a: 'Clients pay you directly through your chosen payout channel (PayPal, Wise, Direct Bank Wire, or Stripe). You retain 100% of your tour fees.'
+    },
+    {
+      q: 'Can I set my own guiding rates and schedule?',
+      a: 'Absolutely. You have 100% control over your hourly or day rates (typically $35–$75+/hr), your availability, and the specific tour itineraries you want to offer.'
     }
   ]
 
@@ -112,43 +116,43 @@ export default function BookingPage() {
           <div className="flex items-center justify-center space-x-2 text-sm text-secondary mb-3 font-medium">
             <Link to="/" className="hover:text-primary transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-primary font-semibold">Tour Bookings</span>
+            <span className="text-primary font-semibold">Guide Training & Monetization</span>
           </div>
           <h1 className="font-volkhov font-bold text-dark-navy text-3xl sm:text-4xl md:text-5xl capitalize">
-            Curated Tour Packages & Booking Plans
+            How to Guide & Earn at the Same Time
           </h1>
           <p className="text-secondary text-base sm:text-lg max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
-            Choose from flexible booking amounts tailored for solo explorers, families, and luxury connoisseurs. Transparent prices with instant confirmation.
+            Turn your local passion into an international guiding business. Learn professional procedures, get advertised to global clients, and earn with a minimum $10 account deposit.
           </p>
 
           {/* Guarantee Badges */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-10">
             <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-3">
-              <span className="text-2xl">🛡️</span>
+              <span className="text-2xl">🧭</span>
               <div className="text-left">
-                <h4 className="text-xs font-bold text-dark-navy">Best Price Guarantee</h4>
-                <p className="text-[11px] text-secondary">Price match promise</p>
+                <h4 className="text-xs font-bold text-dark-navy">Field-Tested Training</h4>
+                <p className="text-[11px] text-secondary">Storytelling & route pacing</p>
               </div>
             </div>
             <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-3">
               <span className="text-2xl">⚡</span>
               <div className="text-left">
-                <h4 className="text-xs font-bold text-dark-navy">Instant Booking</h4>
-                <p className="text-[11px] text-secondary">Real-time confirmation</p>
+                <h4 className="text-xs font-bold text-dark-navy">Instant Go-Live</h4>
+                <p className="text-[11px] text-secondary">Global client visibility</p>
               </div>
             </div>
             <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-3">
-              <span className="text-2xl">🔄</span>
+              <span className="text-2xl">💵</span>
               <div className="text-left">
-                <h4 className="text-xs font-bold text-dark-navy">Free 48h Cancellation</h4>
-                <p className="text-[11px] text-secondary">Risk-free flexibility</p>
+                <h4 className="text-xs font-bold text-dark-navy">Direct Payouts</h4>
+                <p className="text-[11px] text-secondary">100% tour fees are yours</p>
               </div>
             </div>
             <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-3">
-              <span className="text-2xl">🎧</span>
+              <span className="text-2xl">🌍</span>
               <div className="text-left">
-                <h4 className="text-xs font-bold text-dark-navy">24/7 Concierge</h4>
-                <p className="text-[11px] text-secondary">Local expert assistance</p>
+                <h4 className="text-xs font-bold text-dark-navy">Worldwide Network</h4>
+                <p className="text-[11px] text-secondary">Travel agencies & tourists</p>
               </div>
             </div>
           </div>
@@ -159,13 +163,13 @@ export default function BookingPage() {
       <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h5 className="text-secondary font-semibold text-xs sm:text-sm uppercase tracking-widest mb-2">
-            Transparent Amounts
+            METHODOLOGY CURRICULUM
           </h5>
           <h2 className="font-volkhov font-bold text-dark-navy text-3xl sm:text-4xl capitalize">
-            Explore All Tour Booking Tiers
+            Tour Guide Training Tracks & Tiers
           </h2>
           <p className="text-secondary text-sm sm:text-base max-w-xl mx-auto mt-2">
-            No surprise taxes or charges at checkout. Select the tier that matches your style.
+            Clear procedures, complete itinerary templates, and direct client acquisition funnels tailored for your location.
           </p>
         </div>
 
@@ -201,10 +205,10 @@ export default function BookingPage() {
                     <span className="text-3xl sm:text-4xl font-bold font-volkhov text-dark-navy">
                       ${tier.amount}
                     </span>
-                    <span className="text-xs text-secondary font-medium">/ per traveler</span>
+                    <span className="text-xs text-secondary font-medium">/ complete training</span>
                   </div>
                   <p className="text-[11px] text-emerald-600 font-semibold mt-1">
-                    ✓ All taxes & entry tickets included
+                    ✓ Includes full itinerary blueprints & certification
                   </p>
                 </div>
 
@@ -246,7 +250,7 @@ export default function BookingPage() {
               Got Questions?
             </h5>
             <h2 className="font-volkhov font-bold text-dark-navy text-2xl sm:text-3xl capitalize">
-              Tour Booking & Pricing FAQs
+              Tour Guide Training & Monetization FAQs
             </h2>
           </div>
 

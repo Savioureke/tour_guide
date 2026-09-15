@@ -13,13 +13,13 @@ export default function TestimonialPage() {
           <div className="flex items-center justify-center space-x-2 text-sm text-secondary mb-3 font-medium">
             <Link to="/" className="hover:text-primary transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-primary font-semibold">Testimonials</span>
+            <span className="text-primary font-semibold">Success Stories</span>
           </div>
           <h1 className="font-volkhov font-bold text-dark-navy text-3xl sm:text-4xl md:text-5xl capitalize">
-            What People Say About Us
+            Tour Guide Success Stories
           </h1>
           <p className="text-secondary text-base sm:text-lg max-w-xl mx-auto mt-3 font-medium">
-            Read genuine feedback from adventurers and travelers who rely on Tour Guide.
+            Read real feedback from certified tour guides who built thriving guiding businesses and earn from global travelers.
           </p>
         </div>
       </div>

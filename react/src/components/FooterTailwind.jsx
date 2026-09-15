@@ -14,29 +14,29 @@ export default function FooterTailwind() {
               <img src="assets/img/logo2.svg" width="150" alt="Tour Guide" className="h-9 w-auto" />
             </a>
             <p className="text-secondary text-sm font-medium leading-relaxed max-w-xs">
-              Book your trip in minute, get full Control for much longer.
+              A professional portal for passionate locals to learn tour guiding methodology, earn globally, and get booked by international travelers and agencies.
             </p>
           </div>
 
           {/* Company Column */}
           <div>
             <h4 className="font-sans font-bold text-dark-text text-lg sm:text-xl mb-4 sm:mb-5">
-              Company
+              Platform
             </h4>
             <ul className="space-y-2.5 text-base font-medium">
               <li>
-                <a href="#!" className="text-secondary hover:text-primary transition-colors">
-                  About
+                <a href="#service" className="text-secondary hover:text-primary transition-colors">
+                  Guide Skills
                 </a>
               </li>
               <li>
-                <a href="#!" className="text-secondary hover:text-primary transition-colors">
-                  Careers
+                <a href="#destination" className="text-secondary hover:text-primary transition-colors">
+                  Global Guides
                 </a>
               </li>
               <li>
-                <a href="#!" className="text-secondary hover:text-primary transition-colors">
-                  Mobile
+                <a href="#booking" className="text-secondary hover:text-primary transition-colors">
+                  Monetization
                 </a>
               </li>
             </ul>
@@ -45,22 +45,22 @@ export default function FooterTailwind() {
           {/* Contact Column */}
           <div>
             <h4 className="font-sans font-bold text-dark-text text-lg sm:text-xl mb-4 sm:mb-5">
-              Contact
+              Support
             </h4>
             <ul className="space-y-2.5 text-base font-medium">
               <li>
-                <a href="#!" className="text-secondary hover:text-primary transition-colors">
-                  Help/FAQ
+                <a href="#booking" className="text-secondary hover:text-primary transition-colors">
+                  Guide FAQs
                 </a>
               </li>
               <li>
-                <a href="#!" className="text-secondary hover:text-primary transition-colors">
-                  Press
+                <a href="#testimonial" className="text-secondary hover:text-primary transition-colors">
+                  Success Stories
                 </a>
               </li>
               <li>
-                <a href="#!" className="text-secondary hover:text-primary transition-colors">
-                  Affiliate
+                <a href="#booking" className="text-secondary hover:text-primary transition-colors">
+                  Payouts & Terms
                 </a>
               </li>
             </ul>
@@ -69,22 +69,22 @@ export default function FooterTailwind() {
           {/* More Column */}
           <div>
             <h4 className="font-sans font-bold text-dark-text text-lg sm:text-xl mb-4 sm:mb-5">
-              More
+              Curriculum
             </h4>
             <ul className="space-y-2.5 text-base font-medium">
               <li>
-                <a href="#!" className="text-secondary hover:text-primary transition-colors">
-                  Airlinefees
+                <a href="#service" className="text-secondary hover:text-primary transition-colors">
+                  Heritage Storytelling
                 </a>
               </li>
               <li>
-                <a href="#!" className="text-secondary hover:text-primary transition-colors">
-                  Airline
+                <a href="#service" className="text-secondary hover:text-primary transition-colors">
+                  Route Logistics
                 </a>
               </li>
               <li>
-                <a href="#!" className="text-secondary hover:text-primary transition-colors">
-                  Low fare tips
+                <a href="#service" className="text-secondary hover:text-primary transition-colors">
+                  Client Matching
                 </a>
               </li>
             </ul>
@@ -129,7 +129,7 @@ export default function FooterTailwind() {
             </div>
 
             <h4 className="font-sans font-medium text-secondary text-base mb-3">
-              Discover our app
+              Guiding Resources
             </h4>
 
             {/* App Store Badges */}
@@ -148,7 +148,7 @@ export default function FooterTailwind() {
         {/* Copyright Bar */}
         <div className="pt-8 border-t border-gray-100 text-center">
           <p className="text-secondary text-sm font-medium">
-            All rights reserved@tourguide.co
+            All rights reserved. Professional Tour Guide Certification & Global Directory.
           </p>
         </div>
 

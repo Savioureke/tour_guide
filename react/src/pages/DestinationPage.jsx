@@ -12,13 +12,13 @@ export default function DestinationPage() {
           <div className="flex items-center justify-center space-x-2 text-sm text-secondary mb-3 font-medium">
             <Link to="/" className="hover:text-primary transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-primary font-semibold">Destinations</span>
+            <span className="text-primary font-semibold">Global Guides</span>
           </div>
           <h1 className="font-volkhov font-bold text-dark-navy text-3xl sm:text-4xl md:text-5xl capitalize">
-            Top Destinations
+            Verified Tour Guides Around the World
           </h1>
           <p className="text-secondary text-base sm:text-lg max-w-xl mx-auto mt-3 font-medium">
-            Explore world-renowned travel destinations curated with unforgettable itineraries.
+            Trained and certified on this platform. Rated by travelers and travel organizations. Available now for bookings.
           </p>
         </div>
       </div>

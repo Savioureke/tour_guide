@@ -50,7 +50,7 @@ export default function CtaTailwind() {
           {/* Content Container */}
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="font-sans font-bold text-secondary text-2xl sm:text-3xl md:text-[33px] md:leading-[54px] mb-8 sm:mb-12">
-              Subscribe to get information, latest news and other interesting offers about Cobham
+              Ready to Become a Certified Tour Guide and Get Booked by Global Travelers?
             </h2>
 
             {/* Newsletter Form */}
@@ -64,7 +64,7 @@ export default function CtaTailwind() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
+                  placeholder="Enter your email to start"
                   required
                   className="w-full bg-white text-dark-navy placeholder-gray-400 pl-14 pr-4 py-4 sm:py-4.5 rounded-[10px] border border-gray-100 focus:border-primary focus:outline-none shadow-sm text-base transition-colors"
                 />
@@ -80,7 +80,7 @@ export default function CtaTailwind() {
                 type="submit"
                 className="w-full sm:w-auto bg-gradient-to-b from-[#FF946D] to-[#FF7D68] hover:from-[#FF7D68] hover:to-[#FF946D] text-white font-medium text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-4.5 rounded-[10px] shadow-danger-btn hover:scale-[1.02] active:scale-[0.98] transition-all flex-shrink-0 focus:outline-none"
               >
-                {subscribed ? 'Subscribed!' : 'Subscribe'}
+                {subscribed ? 'Registered!' : 'Start Guide Training'}
               </button>
             </form>
           </div>
